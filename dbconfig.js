@@ -1,5 +1,6 @@
 const mongoose = require("mongoose") ;
-
+const dotenv = require("dotenv");
+dotenv.config();
 const db_url = process.env.db_url ;
 
 connectDb().catch(err => console.log(err));
