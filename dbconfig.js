@@ -1,6 +1,6 @@
 const mongoose = require("mongoose") ;
 
-const db_url = "mongodb://0.0.0.0/HimalayanHotel" ;
+const db_url = process.env.db_url ;
 
 mongoose.connect(db_url);
 
