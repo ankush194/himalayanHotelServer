@@ -2,21 +2,15 @@ const mongoose = require("mongoose") ;
 
 const db_url = process.env.db_url ;
 
-mongoose.connect(process.env.database, {
-    useUnifiedTopology: true,
-    useNewUrlParser: true
-});
+connectDb().catch(err => console.log(err));
 
-mongoose.set('strictQuery', false);
-
-const con = mongoose.connection ;
-
-con.on("connected",()=>{
-    console.log("db connected")
-})
-
-con.on("error",()=>{
-    console.log("db connection error")
-})
+async function connectDb() {
+    await mongoose.set("strictQuery", false);
+    await mongoose.connect(process.env.database, {
+        useUnifiedTopology: true,
+        useNewUrlParser: true
+    });
+    console.log("db connected");
+}
 
 module.exports = mongoose ;
