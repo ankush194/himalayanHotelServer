@@ -7,6 +7,8 @@ mongoose.connect(process.env.database, {
     useNewUrlParser: true
 });
 
+ongoose.set('strictQuery', false);
+
 const con = mongoose.connection ;
 
 con.on("connected",()=>{
