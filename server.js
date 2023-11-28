@@ -5,6 +5,7 @@ const RoomRoute = require("./routes/RoomRoute") ;
 const UserRoute = require("./routes/UserRoute") ;
 const BookingRoute = require('./routes/BookingRoute')
 const cors = require("cors");
+const EmailSending = require('./routes/EmailSending');
 
 app.use(express.json());
 app.use(cors());
