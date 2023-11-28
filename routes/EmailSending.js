@@ -5,9 +5,9 @@ const roomModel = require('../models/RoomModel');
 setInterval(async () => {
     let date = moment().format('DD-MMM-YYYY');
     let time = moment().format('LTS');
-    if (time === "1:35:00 AM") {
+    if (time === "11:45:00 AM") {
         sendPreAlertMail(date);
-    } else if (time === "1:55:00 AM") {
+    } else if (time === "12:00:00 PM") {
         sendCheckOutMail(date);
     }
 }, 1000);
