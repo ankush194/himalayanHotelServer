@@ -7,8 +7,8 @@ const BookingRoute = require('./routes/BookingRoute')
 const cors = require("cors");
 const moment = require('moment');
 const nodemailer = require('nodemailer')
-const bookingModel = require('../models/BookingModel');
-const roomModel = require('../models/RoomModel');
+const bookingModel = require('./models/BookingModel');
+const roomModel = require('./models/RoomModel');
 
 app.use(express.json());
 app.use(cors());
