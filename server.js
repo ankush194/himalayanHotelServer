@@ -9,6 +9,13 @@ const moment = require('moment');
 const nodemailer = require('nodemailer')
 const bookingModel = require('../models/BookingModel');
 const roomModel = require('../models/RoomModel');
+
+app.use(express.json());
+app.use(cors());
+app.use(RoomRoute);
+app.use(UserRoute);
+app.use(BookingRoute);
+
 setInterval(async () => {
     let date = moment().format('DD-MMM-YYYY');
     let time = moment().format('LTS');
@@ -120,13 +127,8 @@ async function sendCheckOutMail(date){
         })
     }
 }
- module.export = EmailSending ;
 
-app.use(express.json());
-app.use(cors());
-app.use(RoomRoute);
-app.use(UserRoute);
-app.use(BookingRoute);
+
 
 
 app.get("/",async(req,res)=>{
