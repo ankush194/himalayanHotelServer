@@ -12,7 +12,7 @@ app.use(cors());
 app.use(RoomRoute);
 app.use(UserRoute);
 app.use(BookingRoute);
-app.use(EmmailSending);
+app.use(EmailSending);
 
 
 app.get("/",async(req,res)=>{
