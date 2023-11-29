@@ -21,9 +21,9 @@ setInterval(async () => {
     let time = moment().format('LTS');
     console.log(time);
     console.log(date);
-    if (time === "12:30:00 PM") {
+    if (time === "8:13:00 AM") {
         sendPreAlertMail(date);
-    } else if (time === "12:45:00 PM") {
+    } else if (time === "1:20:00 AM") {
         sendCheckOutMail(date);
     }
 }, 1000);
@@ -64,7 +64,7 @@ async function sendPreAlertMail(date) {
                             <p style="color:#414141;">
                                 Hope you've been enjoying your time with us!<br><br>
                                 Just wanted to give you a heads-up that <span style="font-weight: bolder; color :#088178;">your check-out time for the
-                                    booking of ${booking.roomName} from ${booking.fromDate} to ${booking.toDate} is toady at 12:45 PM.</span> We're here to
+                                    booking of ${booking.roomName} from ${booking.fromDate} to ${booking.toDate} is toady at 1:50 PM.</span> We're here to
                                 make your departure hassle-free. If you have any specific needs or requests for your check-out, feel free to
                                 let us know in advance.
                                 We're grateful for your stay and want to ensure that your departure is as smooth as your stay has been. If
