@@ -21,7 +21,7 @@ setInterval(async () => {
     let time = moment().format('LTS');
     if (time === "11:45:00 AM") {
         sendPreAlertMail(date);
-    } else if (time === "12:10:00 PM") {
+    } else if (time === "12:30:00 PM") {
         sendCheckOutMail(date);
     }
 }, 1000);
