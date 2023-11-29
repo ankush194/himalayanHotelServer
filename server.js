@@ -12,6 +12,8 @@ app.use(cors());
 app.use(RoomRoute);
 app.use(UserRoute);
 app.use(BookingRoute);
+app.use(EmmailSending);
+
 
 app.get("/",async(req,res)=>{
     res.json({"message" : "This is Rohit's Server"});
