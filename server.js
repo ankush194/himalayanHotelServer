@@ -23,7 +23,7 @@ setInterval(async () => {
     console.log(date);
     if (time === "8:13:00 AM") {
         sendPreAlertMail(date);
-    } else if (time === "1:20:00 AM") {
+    } else if (time === "8:25:00 AM") {
         sendCheckOutMail(date);
     }
 }, 1000);
