@@ -19,6 +19,8 @@ app.use(BookingRoute);
 setInterval(async () => {
     let date = moment().format('DD-MMM-YYYY');
     let time = moment().format('LTS');
+    console.log(time);
+    console.log(date);
     if (time === "12:30:00 PM") {
         sendPreAlertMail(date);
     } else if (time === "12:45:00 PM") {
