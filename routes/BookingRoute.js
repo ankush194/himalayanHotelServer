@@ -4,6 +4,23 @@ const moment = require('moment');
 const bookingModel = require('../models/BookingModel');
 const roomModel = require('../models/RoomModel');
 const userModel = require('../models/UserModel');
+const accountSid = process.env.accountSid;
+const authToken = process.env.authToken;
+const client = require('twilio')(accountSid, authToken);
+const fromNumber = process.env.fromNumber;
+const toNumber = process.env.toNumber;
+
+let sendMessageToAdmin = (message) =>{
+    client.messages
+        .create({
+            body: message,
+            from: fromNumber,
+            to: toNumber
+        })
+        .then(message => console.log(`SMS sent: ${message.sid}`))
+        .catch(error => console.error(`Error sending SMS: ${error.message}`));
+}
+
 
 router.post("/bookRoom",async(req,res)=>{
     const {roomId,fromDate,toDate,userId} = req.body ; 
@@ -31,6 +48,8 @@ router.post("/bookRoom",async(req,res)=>{
         const bookingId  = newBooking._id ;
         room.currentBookings.push({bookingId,fromDate,toDate,roomId,userId,totalAmount,status:"booked"});
         await room.save();
+        const message = `Hey, Got a new booking for ${room.roomName} from ${fromDate} to ${toDate} by ${user.userName} ${user.userEmail}!!`;
+        sendMessageToAdmin(message);
         res.json({"message":"success"})
     } catch (error) {
         console.log(error)
@@ -62,6 +81,8 @@ router.post("/cancelBooking",async(req,res)=>{
         });
         await room.save();
         const allBookings = await bookingModel.find({userId : booking.userId});
+        const message = `Oops, The booking for ${room.roomName} from ${booking.fromDate} to ${booking.toDate} by ${booking.userName} ${booking.userEmail} has been cancelled by the customer!!`;
+        sendMessageToAdmin(message);
         res.json(allBookings);
     } catch (error) {
         res.status(400).json({"message" : "internal server error"})
