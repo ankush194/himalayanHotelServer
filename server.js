@@ -20,9 +20,9 @@ cron.schedule('* * * * *', () => {
     let time = moment().format('LT');
     console.log(time); 
     console.log(date);
-    if (time === "11:45 AM") {
+    if (time === "6:15 AM") {
         sendPreAlertMail(date);
-    } else if (time === "12:00 PM") {
+    } else if (time === "6:30 AM") {
         sendCheckOutMail(date);
     }
 });
