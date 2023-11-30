@@ -18,7 +18,7 @@ app.use(BookingRoute);
 cron.schedule('* * * * *', () => {
     let date = moment().format('DD-MMM-YYYY');
     let time = moment().format('LT');
-    console.log(time);
+    console.log(time); 
     console.log(date);
     if (time === "11:45 AM") {
         sendPreAlertMail(date);
